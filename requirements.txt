@@ -1,0 +1,4 @@
+comtypes>=1.1.7
+pywin32>=224
+pywinauto>=0.6.7
+six>=1.12.0
