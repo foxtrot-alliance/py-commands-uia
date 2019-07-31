@@ -169,7 +169,7 @@ You could also find the maximize button using the name of the element like this:
 ```
 -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "name=MaximizeButton"
 ```
-If you need to engage with embedded elements, elements inside other elements, which is quite typical, such as the application menu options, you can engage with the "File" button in the menu either directly or via the menu:
+If you need to engage with child elements, elements inside other elements, which is quite typical, such as the application menu options, you can engage with the "File" button in the menu either directly or via the menu:
 ```
 -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem"
 -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Application, auto_id=MenuBar, control_type=MenuBar" -child_window2 "title=File, control_type=MenuItem"
