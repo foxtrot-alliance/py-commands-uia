@@ -285,27 +285,15 @@ Parameters:
 ```
 -app "X" -main_window "X" [-child_window1-5 "X"] -command "select" -value "X"
 ```
-Examples:
-```
--command_click "click" -position "250, 100"
-```
 
 ### Location
 Parameters:
 ```
 -app "X" -main_window "X" [-child_window1-5 "X"] -command "location"
 ```
-Examples:
-```
--command_click "click" -position "250, 100"
-```
 
 ### Wait
 Parameters:
 ```
 -app "X" -main_window "X" [-child_window1-5 "X"] -command "wait" -wait "X"
-```
-Examples:
-```
--command_click "click" -position "250, 100"
 ```
