@@ -182,6 +182,24 @@ PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -com
 ```
 This will generate a text file called "print_control_identifiers.txt" in the specified folder.
 
+## Multiple commands
+
+In some cases, you need to execute multiple commands in one sequence, for example, if you need to click in a menu to expand a dropdown of options to then click on one of the options. To show an example, here we click to expand the Notepad menu to then click to open the Page Setup in Notepad + clicks to select the "Landscape" orientation.
+```
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -command "click" -hover "true" && PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -child_window2 "title=Page Setup..., control_type=MenuItem" -command "click" && PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Page Setup, control_type=Window" -child_window2 "title=Landscape, control_type=RadioButton" -command "click"
+```
+This single command is actually three commands put together in a sequence using "&&". These are the three commands separated:
+```
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -command "click" -hover "true"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -child_window2 "title=Page Setup..., control_type=MenuItem" -command "click"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Page Setup, control_type=Window" -child_window2 "title=Landscape, control_type=RadioButton" -command "click"
+```
+This is also relevant if you need to find out how to access elements only visible while hovering over an item. In case you need to figure out how to engage with the elements in the Notepad menu, you need to click on the menu item and immediately after print information. You can use the same approach for this:
+```
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -command "click" -hover "true" && PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print"
+```
+Notice that in the second command, the print command, we look in the whole window, not only in the menu. This way you make sure to get information about all elements in the application after the click.
+
 ## All available parameters
 ```
 -backend: "win32"/"uia", default = "uia"
