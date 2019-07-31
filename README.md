@@ -268,6 +268,8 @@ Examples:
 ```
 
 ### Send
+NOTE: You can send keystrokes using [these key codes](https://pywinauto.readthedocs.io/en/latest/code/pywinauto.keyboard.html).
+
 Parameters:
 ```
 -app "X" -main_window "X" [-child_window1-5 "X"] -command "send" -value "X"
@@ -275,6 +277,7 @@ Parameters:
 Examples:
 ```
 -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "send" -value "Hello World!"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "send" -value "Hello{ENTER 2}World!"
 ```
 
 ### Select
