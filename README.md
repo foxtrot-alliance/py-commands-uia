@@ -34,15 +34,24 @@ For each command, there are three things you need to consider:
 ```
 3. What action do you wish to perform?
     1. "PRINT"
-    2. "CLICK"
-    3. "DOUBLECLICK"
-    4. "RIGHTCLICK"
-    5. "SEND"
-    6. "SELECT"
-    7. "LOCATION"
-    8. "WAIT"
+    2. "PRINT_FILE"
+    3. "CLICK"
+    4. "DOUBLECLICK"
+    5. "RIGHTCLICK"
+    6. "SEND"
+    7. "SELECT"
+    8. "LOCATION"
+    9. "WAIT"
 ```
 -command "X" [-value "X"]
+```
+A full command could look like this:
+```
+PROGRAM_EXE_PATH -backend "X" -app "X" -main_window "X" -child_window1 "X" -command "X"
+```
+Example:
+```
+PROGRAM_EXE_PATH -backend "uia" -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "click"
 ```
 The solution will give an output to the selected variable in the DOS Command action to indicate whether the command was executed successfully or not.
 
@@ -77,7 +86,7 @@ The tough part is figuring out how to find the parameters to find the element. F
 
 For Notepad, you can, for example, run this command:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print"
 ```
 The output of this command will be something like:
 ```
@@ -169,5 +178,128 @@ If you need to engage with embedded elements, elements inside other elements, wh
 
 For applications with a lot of elements, it can be more convenient to print the output to a file instead of the console. To do this, you have to include "file" in the command and specify the folder using the "value" parameter like this:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print_file" -value "c:\"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print_file" -value "c:\"
+```
+This will generate a text file called "print_control_identifiers.txt" in the specified folder.
+
+## All available parameters
+```
+-backend: "win32"/"uia", default = "uia"
+  This will determine the technology that the program will utilize.
+
+-app: the parameters to connect to the application, required
+  This will determine how the program will find the application to engage with.
+
+-main_window: the parameters to connect to the window of the application, required
+  This will determine how the program will find window of the application.
+
+-child_windowX: the parameters to locate the target element, you can define between 0-5 child windows
+  This is the (optional) additional layers to locate the element to engage with.
+
+-command: "print"/"print_file"/"click"/"doubleclick"/"rightclick"/"send"/"select"/"location"/"wait", required
+  This is the command to perform with the located element.
+
+-value: "X", required if "print_file"/"send"/"select" commands are used
+  This will instruct how to perform the specified command if relevant.
+
+-hover: "true/false", default = "false"
+  If a click command is selected, this determines whether the mouse should remain in the position after clicking.
+
+-wait: "X", required if the "wait" command is used
+  This will instruct the program on how many seconds it should wait.
+
+-traces: "true"/"false", default = "false"
+  This determines whether you wish the output to include traces, information about the execution.
+```
+
+## Detailed command description
+
+### Print
+Parameters:
+```
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "print"
+```
+Examples:
+```
+-command_click "click" -position "250, 100"
+```
+
+### Print to file
+Parameters:
+```
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "print_file" -value "X"
+```
+Examples:
+```
+-command_click "click" -position "250, 100"
+```
+
+### Click
+Parameters:
+```
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "click" [-hover "X"]
+```
+Examples:
+```
+-command_click "click" -position "250, 100"
+```
+
+### Double-click
+Parameters:
+```
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "doubleclick" [-hover "X"]
+```
+Examples:
+```
+-command_click "click" -position "250, 100"
+```
+
+### Right-click
+Parameters:
+```
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "rightclick" [-hover "X"]
+```
+Examples:
+```
+-command_click "click" -position "250, 100"
+```
+
+### Send
+Parameters:
+```
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "send" -value "X"
+```
+Examples:
+```
+-command_click "click" -position "250, 100"
+```
+
+### Select
+Parameters:
+```
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "select" -value "X"
+```
+Examples:
+```
+-command_click "click" -position "250, 100"
+```
+
+### Location
+Parameters:
+```
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "location" -value "X"
+```
+Examples:
+```
+-command_click "click" -position "250, 100"
+```
+
+### Wait
+Parameters:
+```
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "location" -value "X"
+```
+Examples:
+```
+-command_click "click" -position "250, 100"
 ```
