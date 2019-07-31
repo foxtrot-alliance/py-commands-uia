@@ -221,7 +221,7 @@ Parameters:
 ```
 Examples:
 ```
--command_click "click" -position "250, 100"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print"
 ```
 
 ### Print to file
@@ -231,7 +231,7 @@ Parameters:
 ```
 Examples:
 ```
--command_click "click" -position "250, 100"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print_file" -value "c:\"
 ```
 
 ### Click
@@ -241,7 +241,8 @@ Parameters:
 ```
 Examples:
 ```
--command_click "click" -position "250, 100"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "click"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -command "click" -hover "true"
 ```
 
 ### Double-click
@@ -251,7 +252,8 @@ Parameters:
 ```
 Examples:
 ```
--command_click "click" -position "250, 100"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "doubleclick"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -command "doubleclick" -hover "true"
 ```
 
 ### Right-click
@@ -261,7 +263,8 @@ Parameters:
 ```
 Examples:
 ```
--command_click "click" -position "250, 100"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "rightclick" -hover "true"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "rightclick" -hover "true"
 ```
 
 ### Send
@@ -271,7 +274,7 @@ Parameters:
 ```
 Examples:
 ```
--command_click "click" -position "250, 100"
+-app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "send" -value "Hello World!"
 ```
 
 ### Select
@@ -287,7 +290,7 @@ Examples:
 ### Location
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "location" -value "X"
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "location"
 ```
 Examples:
 ```
@@ -297,7 +300,7 @@ Examples:
 ### Wait
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "location" -value "X"
+-app "X" -main_window "X" [-child_window1-5 "X"] -command "wait" -wait "X"
 ```
 Examples:
 ```
