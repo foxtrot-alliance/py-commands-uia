@@ -1,6 +1,6 @@
 # py-commands-uia
 
-This program allows you to work with advanced GUI automation based on either win32 or uia backend technology. You can run the program via the CMD or as part of an automation script in an RPA tool like Foxtrot. This solution is meant to supplement Foxtrots core functionality and enable you interact very precisely with elements and objects that the standard Foxtrot targeting technology might not be able to detect. For example, if you have an application where Foxtrot is limited in its ability to target the individual buttons and fields, this solution is very useful for you. The solution is written in Python using the module "pywinauto". You can see the [full source code here](https://github.com/foxtrot-alliance/py-commands-uia/blob/master/py-commands-uia.py).
+This program allows you to work with advanced GUI automation based on either win32 or uia backend technology. You can run the program via the CMD or as part of an automation script in an RPA tool like Foxtrot. This solution is meant to supplement Foxtrots core functionality and enable you to interact very precisely with elements and objects that the standard Foxtrot targeting technology might not be able to detect. For example, if you have an application where Foxtrot is limited in its ability to target the individual buttons and fields, this solution is very useful for you. The solution is written in Python using the module "pywinauto". You can see the [full source code here](https://github.com/foxtrot-alliance/py-commands-uia/blob/master/py-commands-uia.py).
 
 ## Installation
 
@@ -160,7 +160,7 @@ child_window(title="Untitled - Notepad", control_type="Window")
    |    | child_window(title="Help", control_type="MenuItem")
 SUCCESS
 ```
-This finds the Notepad application and main window to print all the elements inside the window. Now, using this information, you can engage with, for example, the maximize button like mentioned earlier:
+This finds the Notepad application and the main window to print all the elements inside the window. Now, using this information, you can engage with, for example, the maximize button like mentioned earlier:
 ```
 -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button"
 ```
