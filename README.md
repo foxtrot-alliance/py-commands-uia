@@ -57,6 +57,8 @@ The solution will give an output to the selected variable in the DOS Command act
 
 ## Finding the target
 
+You may consider downloading the [Windows 10 SDK](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk) containing the [Inspect](https://docs.microsoft.com/en-us/windows/win32/winauto/inspect-objects) application.
+
 To find the target, there is a [long list of parameters](https://pywinauto.readthedocs.io/en/latest/code/pywinauto.findwindows.html#pywinauto.findwindows.find_elements) you can use:
 * name: The name of the element
 * class_name: Elements with this window class
