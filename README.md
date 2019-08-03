@@ -74,12 +74,12 @@ To find the target, there is a [long list of parameters](https://pywinauto.readt
 
 Here are some examples of how you could find the whole window of a newly opened Notepad window:
 ```
--app "title=Untitled - Notepad" -main_window "title=Untitled - Notepad"
--app "path=notepad.exe" -main_window "title_re=.* Notepad"
+PROGRAM_EXE_PATH -app "title=Untitled - Notepad" -main_window "title=Untitled - Notepad"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad"
 ```
 Here is an example of how to find the maximize button of Notepad:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button"
 ```
 
 ### Printing all elements
@@ -164,17 +164,17 @@ SUCCESS
 ```
 This finds the Notepad application and the main window to print all the elements inside the window. Now, using this information, you can engage with, for example, the maximize button like mentioned earlier:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button"
 ```
 TIP: Notice that the use of quotation marks is slightly different in the command line compared to the print output.
 You could also find the maximize button using the name of the element like this:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "name=MaximizeButton"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "name=MaximizeButton"
 ```
 If you need to engage with child elements, elements inside other elements, which is quite typical, such as the application menu options, you can engage with the "File" button in the menu either directly or via the menu:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem"
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Application, auto_id=MenuBar, control_type=MenuBar" -child_window2 "title=File, control_type=MenuItem"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Application, auto_id=MenuBar, control_type=MenuBar" -child_window2 "title=File, control_type=MenuItem"
 ```
 ### Printing to files
 
@@ -237,54 +237,54 @@ Notice that in the second command, the print command, we look in the whole windo
 ### Print
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "print"
+PROGRAM_EXE_PATH -app "X" -main_window "X" [-child_window1-5 "X"] -command "print"
 ```
 Examples:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print"
 ```
 
 ### Print to file
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "print_file" -value "X"
+PROGRAM_EXE_PATH -app "X" -main_window "X" [-child_window1-5 "X"] -command "print_file" -value "X"
 ```
 Examples:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print_file" -value "c:\"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -command "print_file" -value "c:\"
 ```
 
 ### Click
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "click" [-hover "X"]
+PROGRAM_EXE_PATH -app "X" -main_window "X" [-child_window1-5 "X"] -command "click" [-hover "X"]
 ```
 Examples:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "click"
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -command "click" -hover "true"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "click"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -command "click" -hover "true"
 ```
 
 ### Double-click
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "doubleclick" [-hover "X"]
+PROGRAM_EXE_PATH -app "X" -main_window "X" [-child_window1-5 "X"] -command "doubleclick" [-hover "X"]
 ```
 Examples:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "doubleclick"
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -command "doubleclick" -hover "true"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "doubleclick"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=File, control_type=MenuItem" -command "doubleclick" -hover "true"
 ```
 
 ### Right-click
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "rightclick" [-hover "X"]
+PROGRAM_EXE_PATH -app "X" -main_window "X" [-child_window1-5 "X"] -command "rightclick" [-hover "X"]
 ```
 Examples:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "rightclick" -hover "true"
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "rightclick" -hover "true"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Maximize, control_type=Button" -command "rightclick" -hover "true"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "rightclick" -hover "true"
 ```
 
 ### Send
@@ -292,28 +292,28 @@ NOTE: You can send keystrokes using [these key codes](https://pywinauto.readthed
 
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "send" -value "X"
+PROGRAM_EXE_PATH -app "X" -main_window "X" [-child_window1-5 "X"] -command "send" -value "X"
 ```
 Examples:
 ```
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "send" -value "Hello World!"
--app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "send" -value "Hello{ENTER 2}World!"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "send" -value "Hello World!"
+PROGRAM_EXE_PATH -app "path=notepad.exe" -main_window "title_re=.* Notepad" -child_window1 "title=Text Editor, control_type=Editor" -command "send" -value "Hello{ENTER 2}World!"
 ```
 
 ### Select
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "select" -value "X"
+PROGRAM_EXE_PATH -app "X" -main_window "X" [-child_window1-5 "X"] -command "select" -value "X"
 ```
 
 ### Location
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "location"
+PROGRAM_EXE_PATH -app "X" -main_window "X" [-child_window1-5 "X"] -command "location"
 ```
 
 ### Wait
 Parameters:
 ```
--app "X" -main_window "X" [-child_window1-5 "X"] -command "wait" -wait "X"
+PROGRAM_EXE_PATH -app "X" -main_window "X" [-child_window1-5 "X"] -command "wait" -wait "X"
 ```
