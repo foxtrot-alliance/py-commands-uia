@@ -511,8 +511,6 @@ def execute_command(parameters, app_obj, window_obj):
                 print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "=== * Waiting for control end * ===")
 
         elif command.upper() == "LOCATION":
-            command = "LOCATION"
-
             if traces is True:
                 print(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S') + ": " + "=== * Print location start * ===")
 
